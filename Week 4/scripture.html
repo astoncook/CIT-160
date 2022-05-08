@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Scripture</title>
+    <script>
+      function applyScripture() {
+        // Get the user's name from the text field that has the id
+        // of "nameInputBox" and store it in a variable named name.
+        let name = document.getElementById("nameInputBox").value;
+
+        // Use string concatenation to create a verse
+        // of scripture personalized for the user.
+        let scripture =
+          "I, " +
+          name +
+          ", will go and do the things" +
+          " which the Lord hath commanded" +
+          ", for I know that the Lord" +
+          " giveth no commandments" +
+          " unto the children of men" +
+          ", save he shall prepare a way for them" +
+          " that they may accomplish the thing" +
+          " which he commandeth them.";
+
+        // Display the scripture in the div that has the id "outputDiv".
+        document.getElementById("outputDiv").innerHTML = scripture;
+      }
+    </script>
+  </head>
+
+  <body>
+    Please enter your name: <input type="text" id="nameInputBox" />
+    <button type="button" onclick="applyScripture()">Verse</button>
+    <div id="outputDiv"></div>
+  </body>
+</html>
