@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Template</title>
     <meta name="description" content="This page includes my Template" />
-    <script></script>
+    <script>
+      "use strict";
+      function showMessage() {
+          alert("You are awesome!");
+      }
+  </script>
   </head>
   <body>
     <div class="myDiv">
       <h2>Template Heading</h2>
       <p>Example template text.</p>
     </div>
-    <button onclick="myFunction()">Click me</button>
-    <header></header>
-    <main>
-      <label for="firstName">First name:</label><br />
-      <input type="text" id="firstName" name="firstName" /><br />
-    </main>
-    <footer></footer>
+    <label for="firstName">First name:</label><br />
+    <input type="text" id="firstName" name="firstName" /><br />
+    <label for="lastName">Last name:</label><br />
+    <input type="text" id="lastName" name="lastName" /><br />
+    <button type="button" onclick="showMessage()">Click me</button>
   </body>
 </html>
