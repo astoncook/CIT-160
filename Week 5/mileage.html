@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mileage</title>
+    <meta name="description" content="This page includes my Mileage document" />
+    <script>
+      function mileage() {
+        // Get the mileage readings and gas used from the user.
+        let s = parseFloat(
+          document.getElementById("startingOdometerInput").value
+        );
+        let e = parseFloat(
+          document.getElementById("endingOdometerInput").value
+        );
+        let g = parseFloat(document.getElementById("gasUsedInput").value);
+
+        // Compute the total miles driven by the user.
+        let t = e - s;
+        // Compute the miles per gallon of the car.
+        let milesPerGallon = t / g;
+
+        // Display the miles per gallon to the user.
+        document.getElementById("outputDiv").innerHTML = milesPerGallon;
+      }
+    </script>
+  </head>
+  <body>
+    Starting Odometer:
+    <input type="text" id="startingOdometerInput" size="5" /><br />
+    Ending Odometer:
+    <input type="text" id="endingOdometerInput" size="5" /><br />
+    Gallons of gas used: <input type="text" id="gasUsedInput" size="5" /><br />
+    <button type="button" onclick="mileage()">Calculate</button>
+    <div id="outputDiv"></div>
+  </body>
+</html>

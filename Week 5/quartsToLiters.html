@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quarts to Liters</title>
+    <meta name="description" content="This page includes my Quarts to Liters" />
+    <script>
+      function quartsToLiters() {
+        // Gets the volume in quarts from the user.
+        let text = document.getElementById("quartsVolume").value;
+
+        // Convert what the user typed from text into a number.
+        let q = parseFloat(text);
+
+        // Convert the Celsius temperature into Fahrenheit.
+        let l = q * 0.946353;
+
+        // Display the amount in liters to the user.
+        document.getElementById("litersAmount").innerHTML = l;
+      }
+    </script>
+  </head>
+  <body>
+    Enter a volume in Quarts: <input type="text" id="quartsVolume" />
+    <button type="button" onclick="quartsToLiters()">Convert</button>
+    <div id="litersAmount"></div>
+  </body>
+</html>
