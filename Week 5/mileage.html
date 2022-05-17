@@ -6,6 +6,11 @@
     <title>Mileage</title>
     <meta name="description" content="This page includes my Mileage document" />
     <script>
+      /*
+      Input: Starting Odometer (s), Ending Odometer (e), Gas Used (g)
+      Processing: Compute the total miles: t = e - s, Compute the miles per gallon: milesPerGallon = t /g
+      Output: Miles per gallon
+      */
       function mileage() {
         // Get the mileage readings and gas used from the user.
         let s = parseFloat(
