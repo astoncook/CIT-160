@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footwear</title>
+    <meta name="description" content="This page includes my Footwear document" />
+    <script>
+      /*
+      Input: Weather(w), Footwear(f).
+      Processing: Process weather or not user inputs any other type of weather then the weather defined on the list.
+      Output: The correct footwear needed for that type of weather.
+      */
+      // Get the user input.
+      function footwear() {
+        let text = document.getElementById("inputBox").value;
+        let w = text;
+        if (w == "hot") {
+          f = "sandals";
+        } else if (w == "rain") {
+          f = "galoshes";
+        } else if (w == "snow") {
+          f = "boots";
+        } else {
+          f = "shoes";
+        }
+
+        // Display the message to the user.
+        document.getElementById("output").innerHTML = f;
+      }
+    </script>
+  </head>
+  <body>
+    Please enter a weather type:
+    <input type="text" id="inputBox" />
+    <button type="button" onclick="footwear()">What footwear should I wear?</button>
+    <div id="output"></div>
+  </body>
+</html>

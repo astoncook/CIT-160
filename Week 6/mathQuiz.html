@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Quiz</title>
+    <meta
+      name="description"
+      content="This page includes my Math Quiz document"
+    />
+    <script>
+      /*
+      Input: First Input(f), Second Input(s), Operator(o), Output(z).
+      Processing: Compute the equation with the correct operator and inputs, check if answer given is correct.
+      Output: The statement either "Correct! Good Job!" or "Incorrect! Try again".
+      */
+      function mathQuiz() {
+        // Get the user input. And define variables
+        let f = parseFloat(document.getElementById("firstInput").value);
+        let o = document.getElementById("operator").value;
+        let s = parseFloat(document.getElementById("secondInput").value);
+        let z = parseFloat(document.getElementById("output").value);
+
+        let answer;
+        let answerOutput;
+
+        if (o == "+") {
+          answer = f + s;
+        } else if (o == "-") {
+          answer = f - s;
+        } else if (o == "/") {
+          answer = f / s;
+        } else if (o == "*") {
+          answer = f * s;
+        }
+        if (answer == z) {
+          answerOutput = "Correct! Good Job!";
+        } else {
+          answerOutput = "Incorrect! Try again";
+        }
+
+        // Display the message to the user.
+        document.getElementById("output").innerHTML = answerOutput;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Test Your Math Skills!</h1>
+    <input type="text" id="firstInput" size="3" /><br />
+    <input type="text" id="operator" size="3" /><br />
+    <input type="text" id="secondInput" size="3" /><br />
+    <input type="text" id="output" size="3" /><br />
+    <button type="button" onclick="mathQuiz()">Check</button>
+    <div id="output"></div>
+  </body>
+</html>
