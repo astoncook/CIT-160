@@ -40,17 +40,17 @@
         }
 
         // Display the message to the user.
-        document.getElementById("output").innerHTML = answerOutput;
+        document.getElementById("divOutput").innerHTML = answerOutput;
       }
     </script>
   </head>
   <body>
     <h1>Test Your Math Skills!</h1>
-    <input type="text" id="firstInput" size="3" /><br />
-    <input type="text" id="operator" size="3" /><br />
-    <input type="text" id="secondInput" size="3" /><br />
-    <input type="text" id="output" size="3" /><br />
+    <input type="text" id="firstInput" size="3">
+    <input type="text" id="operator" size="3">
+    <input type="text" id="secondInput" size="3"> =
+    <input type="text" id="output" size="3">
     <button type="button" onclick="mathQuiz()">Check</button>
-    <div id="output"></div>
+    <div id="divOutput"></div>
   </body>
 </html>
