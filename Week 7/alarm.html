@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alarm</title>
+    <meta name="description" content="This page includes my Alarm document" />
+    <script>
+      /*
+      Input: The time from my computers clock.
+      Processing: Check if it is a weekday or weekend/holiday and if the user can sleep in or not.
+      Output: Depending on the day the user will be given the output of either "Get up!" or "Sleep in.".
+      */
+      function alarmClock() {
+        // Make the variables given to me.
+        var now = new Date();
+        var month = now.getMonth();
+        var dayOfMonth = now.getDate();
+        var dayOfWeek = now.getDay();
+
+        // Check if it is a weekend/holiday or not.
+        if (
+          dayOfWeek == 0 ||
+          dayOfWeek == 6 ||
+          // Checking Holidays
+          (dayOfMonth == 1 && month == 0) ||
+          (dayOfMonth == 4 && month == 6) ||
+          (dayOfMonth == 25 && month == 11)
+          // Display either get up or sleep in.
+        ) {
+          var alarmChoice = "Sleep in.";
+        } else {
+          var alarmChoice = "Get up!";
+        }
+
+        //Output to div
+        document.getElementById("divOutput").innerHTML = alarmChoice;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Can you sleep in today?</h1>
+    <button type="button" onclick="alarmClock()">Check</button>
+    <div id="divOutput"></div>
+  </body>
+</html>

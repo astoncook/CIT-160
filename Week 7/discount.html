@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discount Calculator</title>
+    <meta
+      name="description"
+      content="This page includes my Discount document"
+    />
+    <script>
+      /*
+      Input: Customer subtotal (subTotal)
+      Processing: Check if the day is Tuesday or Wednesday, and give the 10% off if it is true. The for all days add sales tax.
+      Output: The customers total after computing the tax and discount or not.
+      */
+      function discount() {
+        // Make the variables
+        let total;
+        let discount;
+        let subTotal = parseFloat(document.getElementById("subTotal").value);
+
+        // Check if the day is Tuesday or Wednesday if so then add discount.
+        var dayOfWeek = new Date().getDay();
+        if (subTotal > 50 && (dayOfWeek == 2 || dayOfWeek == 3)) {
+          discount = 0.9;
+        } else {
+          discount = 1;
+        }
+
+        // Compute the total with tax and discount if applicable.
+        total = subTotal * discount * 1.06;
+        document.getElementById("divOutput").innerHTML = total;
+      }
+    </script>
+  </head>
+  <body>
+    Please enter the subtotal of your purchase:
+    $<input type="text" id="subTotal" size="3">
+    <button type="button" onclick="discount()">Compute Total</button>
+    <div id="divOutput"></div>
+  </body>
+</html>
