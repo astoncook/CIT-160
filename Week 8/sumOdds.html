@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program with Repetition</title>
+    <meta name="description" content="This page includes my sumOdds document" />
+    <script>
+      /*
+      Input: The use inputs the integer.
+      Processing: The program gets the users input and then adds the odd numbers from 1 to the entered number.
+      Output: The program will output the sum of all of the odd put together.
+      */
+      function sumOdds() {
+        var userInput = parseInt(document.getElementById("userNumber").value);
+        // Starting at 0 the adding up from there.
+        var startingNumber = 0;
+        // Starts the odd number at 1 and then adds 2 to it every time until it reaches the users number.
+        var oddNumber = 1;
+        // Adds all of the oddNumber numbers startingNumber with 1 until it reaches the entered number.
+        for (oddNumber = 1; oddNumber <= userInput; oddNumber++) {
+            // Using the modulus operator to check if odd or even.
+          if (oddNumber % 2 != 0) {
+            startingNumber = oddNumber + startingNumber;
+          }
+        }
+
+        //Output to div
+        document.getElementById("divOutput").innerHTML = startingNumber;
+      }
+    </script>
+  </head>
+  <body>
+    Enter any number: <input type="text" id="userNumber">
+    <button type="button" onclick="sumOdds()">Compute Total</button>
+    <div id="divOutput"></div>
+  </body>
+</html>
