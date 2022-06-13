@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Five Times Defining Table</title>
+    <meta
+      name="description"
+      content="This page includes my fiveTimes document"
+    />
+    <script>
+      /*
+      Input: The user has no inputs. They have to click the "Calculate" button.
+      Processing: The program creates a table of 5 times "x" all the way to the number 12.
+      Output: The program will output all of the 5 times until it reaches 12.
+      */
+      function fiveTimes() {
+        //What we multiply every time.
+        let five = 5;
+        //This is the last number we will multiply.
+        let twelve = 12;
+        //This is the second number being multiplied (1-12).
+        let secondNumber = 1;
+        //The output will be put into this string.
+        let output = "";
+        //The equation will be each line of multiplication.
+        let equation;
+
+        /*
+        This will first check if the multiplied by number is less than 12.
+        If so it will multiply 5 by that number and then write it out in a sentence with correct spacing.
+        After the output it will skip a line and then put the multiplied by number up by one.
+        */
+        while (secondNumber <= twelve) {
+          equation = five + " x " + secondNumber + " = " + five * secondNumber;
+          output = output + equation + "<br>";
+          secondNumber += 1;
+        }
+
+        //Output to div
+        document.getElementById("divOutput").innerHTML = output;
+      }
+    </script>
+  </head>
+  <body>
+    <p>Click the "Calculate" below to display the 5 times table</p>
+    <button type="button" onclick="fiveTimes()">Calculate</button>
+    <div id="divOutput"></div>
+  </body>
+</html>
