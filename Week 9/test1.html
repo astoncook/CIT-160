@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Truth Table</title>
+    <script>
+      /* Input: The program will take the users 1st and second input.
+       * Processing: The program will read if the two numbers are greater than 5 or if their sum is greater than 20.
+       * Output: The program weill print true if it hits the processing statement and print false if anything else.
+       */
+      function truthTable() {
+        //This will be the users inputs
+        let one = parseFloat(document.getElementById("one").value);
+        let two = parseFloat(document.getElementById("two").value);
+
+        //Get the users sum for the second check
+        let total = one + two;
+
+        //Checks if the total is greater than 20 or greater than 5
+        if (total > 20 || (one > 5 && two > 5)) {
+          //Output to the div once calculated
+          document.getElementById("output").innerHTML = "True";
+        } else {
+          document.getElementById("output").innerHTML = "False";
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    Please enter two numbers:
+    <input type="text" id="one" size="5" />
+    <input type="text" id="two" size="5" />
+    <button type="button" onclick="truthTable()">Click</button>
+    <div id="output"></div>
+  </body>
+</html>

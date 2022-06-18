@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Divisor Destroyer</title>
+    <script>
+      /* Input: The user will enter 3 integers from the text fields.
+       * Processing: The program will output all the integers between the start and the end that are evenly divisible by input 3 (divisor)
+       * Output: The output will be separated and output the evenly divisible numbers between the start and the end numbers.
+       */
+      function theDivisorDestroyer() {
+        //This will be the users inputs
+        var start = parseInt(document.getElementById("start").value);
+        var end = parseInt(document.getElementById("end").value);
+        var divisor = parseInt(document.getElementById("divisor").value);
+
+        //The output string of numbers this will go into
+        var numbers = "";
+
+        //The program will check the starting number to make sure it is bigger or equal to the ending number
+        while (start <= end) {
+          //The the program will use the Modulus operator and make sure it can equally divide the numbers until it ends
+          if (start % divisor == 0) {
+            //This is just formatting for the output
+            numbers = numbers + start + " ";
+          }
+          start++;
+        }
+        document.getElementById("output").innerHTML = numbers;
+      }
+    </script>
+  </head>
+
+  <body>
+    Start: <input type="text" id="start" size="5" /><br />
+    End: <input type="text" id="end" size="5" /><br />
+    Divisor: <input type="text" id="divisor" size="5" /><br />
+    <button type="button" onclick="theDivisorDestroyer()">Click</button>
+    <div id="output"></div>
+  </body>
+</html>
