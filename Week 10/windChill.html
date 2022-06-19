@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windchill</title>
+    <meta
+      name="description"
+      content="This page includes my wind windchill document"
+    />
+    <script>
+      /*
+      Input: The user will input the temperature and the wind speed.
+      Processing: The program will take the inputs and then calculate the windchill based off of the 2 inputs.
+      Output: The program will output the windchill when the user clicks the button.
+      */
+      function doInputOutput() {
+        //Get the inputs from the user
+        let temp = parseFloat(document.getElementById("temp").value);
+        let windSpeed = parseFloat(document.getElementById("windSpeed").value);
+
+        //Calls the windChill function, stores, and outputs the windchill.
+        let calculate = windChill(temp, windSpeed);
+        document.getElementById("divOutput").innerHTML = calculate;
+      }
+      //Using the teo inputs by the user
+      function windChill(temp, windSpeed) {
+        //Wind chill equation
+        let windChill =
+          35.74 + 0.6215 * temp - 35.75 * Math.pow(windSpeed, 0.16) + 0.4275 * temp * Math.pow(windSpeed, 0.16);
+        //Rounded the output to the nearest tenth
+        return Math.round((windChill + Number.EPSILON) * 100) / 100;
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      Temperature (F): <input type="text" id="temp" /><br />
+      Wind Speed (MPH): <input type="text" id="windSpeed" />
+    </p>
+    <button type="button" onclick="doInputOutput()">Windchill</button>
+    <div id="divOutput"></div>
+  </body>
+</html>
