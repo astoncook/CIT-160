@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan</title>
+    <meta name="description" content="This page includes my loan document" />
+    <script>
+      /*
+      Input: The user enters in the principal, interest rate, number of years, payments per year, and the number of payments paid.
+      Processing: The program will take the inputs and use them in septate equations to get the payment and then the payoff amount.
+      Output: The program will output the payment and the payoff amount.
+      */
+      function doPayment() {
+        // Get the values from the form.
+        let principal = parseFloat(document.getElementById("principal").value);
+        let interestRate = parseFloat(
+          document.getElementById("interestRate").value
+        );
+        let years = parseFloat(document.getElementById("years").value);
+        let periodsPerYear = parseFloat(
+          document.getElementById("periodsPerYear").value
+        );
+        
+        // Combine the vales to get the payment.
+        let output = computePayment(
+          principal,
+          interestRate,
+          years,
+          periodsPerYear
+        );
+
+        // Output the payment.
+        document.getElementById("output1").innerHTML = output;
+      }
+
+      function doBalance() {
+        // Get the values from the form.
+        let principal = parseFloat(document.getElementById("principal").value);
+        let interestRate = parseFloat(
+          document.getElementById("interestRate").value
+        );
+        let years = parseFloat(document.getElementById("years").value);
+        let periodsPerYear = parseFloat(
+          document.getElementById("periodsPerYear").value
+        );
+        let payments = parseFloat(document.getElementById("payments").value);
+
+        // Combine the vales to get the payoff amount.
+        let output = computeBalance(
+          principal,
+          interestRate,
+          years,
+          periodsPerYear,
+          payments
+        );
+        // Output the payoff amount.
+        document.getElementById("output2").innerHTML = output;
+      }
+
+      // Compute the payment.
+      function computePayment(principal, interestRate, years, periodsPerYear) {
+
+        //  Divide the interest rate by the periods per year.
+        let interestPeriodRate = interestRate / periodsPerYear;
+
+        // Multiply the number of years by the periods per year.
+        let periods = years * periodsPerYear;
+
+        // Use the formula to compute the payment.
+        let payment = (principal * interestPeriodRate) / (1 - Math.pow(1 + interestPeriodRate, -periods));
+
+        // Rounds the output to two decimal places.
+        return payment.toFixed(2);
+      }
+
+      // Compute the payoff amount.
+      function computeBalance(
+        principal,
+        interestRate,
+        years,
+        periodsPerYear,
+        payments,
+      ) {
+        // Get the number of payments for the formula.
+        let numberPayments = computePayment(
+          principal,
+          interestRate,
+          years,
+          periodsPerYear
+        );
+
+        // Divide the interest rate by the periods per year.
+        let interestPeriodRate = interestRate / periodsPerYear;
+
+        // Use the formula to compute the payoff amount.
+        let balance =
+          principal * Math.pow(1 + interestPeriodRate, payments) - (numberPayments * (Math.pow(1 + interestPeriodRate, payments) - 1) / interestPeriodRate);
+
+          // Rounds the output to two decimal places.
+        return balance.toFixed(2);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Loan Calculator</h1>
+    Amount borrowed (principal)
+    <input type="text" id="principal" /><br />
+    Annual interest rate (example: .065)
+    <input type="text" id="interestRate" /><br />
+    Number of years <input type="text" id="years" /><br />
+    Payments per year <input type="text" id="periodsPerYear" /><br />
+    <button type="button" onclick="doPayment()">Compute payment</button>
+    <div id="output1"></div><br>
+    Number of payments paid to date <input type="text" id="payments" /><br />
+    <button type="button" onclick="doBalance()">Compute payoff amount</button>
+    <div id="output2"></div>
+  </body>
+</html>
